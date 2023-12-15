@@ -7,7 +7,7 @@ const manager = new UserManager()
 router.get('/', async (req, res) => {
     try {
         const users = await manager.getUsers();
-        res.status(200).send({ success: true, data: users });
+        res.render('users', { success: true, data: users });
     } catch (err) {
         res.status(500).send({ success: false, error: err.message });
     }
