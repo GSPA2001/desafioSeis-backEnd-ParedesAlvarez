@@ -51,9 +51,11 @@ Una vez que el servidor esté en ejecución, abre Postman:
 
 #### Para Handlebars:
 - **Página principal:** Utiliza el método GET a la URL http://localhost:8080/
-- **Página products:** Utiliza el método GET a la URL http://localhost:8080/products/
+- **Página products:** Utiliza el método GET a la URL http://localhost:8080/home/products
 - **Página realTimeProducts:** Utiliza el método GET a la URL http://localhost:8080/home/realtimeproducts
 - **Página de chat:** Utiliza el método GET a la URL http://localhost:8080/home/chat
+- **Página de login:** Utiliza el método GET a la URL http://localhost:8080/home/login
+- **Página de register:** Utiliza el método GET a la URL http://localhost:8080/home/register
 
 
 ## Used by

@@ -44,7 +44,7 @@ router.get('/realTimeProducts', async (req, res) => {
   })*/
 router.get('/products', async (req, res) => {
     const page = parseInt(req.query.page) || 1;
-    const limit = 5; // Puedes ajustar el límite de productos por página según tus necesidades
+    const limit = 5; // Puedes ajustar el límite de productos por página según tus necesidades y se ve reflejado en http://localhost:8080/home/products
 
     try {
         const allProducts = await productModel.find()
