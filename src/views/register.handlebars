@@ -1,20 +1,61 @@
-<h1>Registrar una cuenta</h1>
-
-<form method="post" action="/api/sessions/register">
-    <label for="first_name">Nombre:</label>
-    <input type="text" name="first_name" required>
-
-    <label for="last_name">Apellido:</label>
-    <input type="text" name="last_name" required>
-
-    <label for="email">Correo:</label>
-    <input type="email" name="email" required>
-
-    <label for="age">Edad:</label>
-    <input type="number" name="age" required>
-
-    <label for="password">Contraseña:</label>
-    <input type="password" name="password" required>
-        
-    <button type="submit">Registrarse</button>
-</form>
+<body class="bg-danger-subtle">
+    <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+        <figure class="text-center"><blockquote class="blockquote">
+            <h1>Registrar cuenta</h1></blockquote>
+            <figcaption class="blockquote-footer">Llena los campos a continuación</figcaption>
+        </figure>
+    </div>    
+</body>
+<div class="card-body mt-0 mx-5">
+    <div class="text-center mb-3 pb-2 mt-3">
+        <p style="color: #495057 ;">Tus Datos</p>
+    </div>
+    <form class="mb-0" method="post" action="/api/sessions/register">
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <label for="first_name" class="form-label">Tu nombre:</label><br>
+                    <input name="first_name" class="form-control" type="text" min="3" placeholder="Nombre" required><br>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <label for="last_name" class="form-label">Tu apellido:</label><br>
+                    <input name="last_name" class="form-control" type="text" min="3" placeholder="Apellido" required><br>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <label for="age" class="form-label"> Tu edad:</label>
+                    <input name="age" class="form-control" type="number" placeholder="+ 18 años edad"min="18" max="100"required><br>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <label for="username" class="form-label">Tu usuario:</label>
+                    <input name="username" class="form-control" type="text" min="2" placeholder="Usuario"required><br>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <label for="email" class="form-label">Tu correo:</label>
+                    <input name="email" class="form-control" type="email" placeholder="correo@electronico.com"required><br>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <label for="password" class="form-label">Tu contraseña:</label><br>
+                    <input type="password" class="form-control" name="password" placeholder="Secreta"><br>
+                </div>
+            </div>
+        </div>
+        <div class="float-end">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-success">Registrarse</button>
+        </div>
+    </form>
+</div>

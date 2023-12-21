@@ -102,7 +102,7 @@ router.get('/profile', async (req, res) => {
         res.render('profile', { user: req.session.user })
     } else {
         // sino volvemos al login
-        res.redirect('/login')
+        res.redirect('/home/login')
     }
 })
 
