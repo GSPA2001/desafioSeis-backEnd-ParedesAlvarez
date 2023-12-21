@@ -4,10 +4,14 @@ import userModel from '../dao/models/user.model.js';
 const router = Router();
 
 // Middleware de autenticación
-const auth = async (req, res, next) => {
+const auth = (req, res, next) => {
     try {
         if (req.session.user) {
-            next();
+            if (req.session.user.role === 'admin') {
+                next();
+            } else {
+                res.status(403).send({ status: 'ERR', data: 'Usuario no admin' });
+            }
         } else {
             res.status(401).send({ status: 'ERR', data: 'Usuario no autorizado' });
         }
@@ -25,11 +29,14 @@ router.post('/login', async (req, res) => {
         const user = await userModel.findOne({ email, password }).lean();
 
         if (user) {
+            // Asignar el rol según la lógica requerida
+            const role = email === 'adminCoder@coder.com' ? 'admin' : 'usuario';
+
             // Almacenar información del usuario en la sesión
             req.session.user = {
                 _id: user._id,
                 email: user.email,
-                role: user.email === 'adminCoder@coder.com' ? 'admin' : 'usuario',
+                role: role,
             };
 
             // Redireccionar a la vista de productos
@@ -63,6 +70,38 @@ router.get('/profile', auth, async (req, res) => {
         res.status(200).send({ status: 'OK', data: req.session.user });
     } catch (err) {
         res.status(500).send({ status: 'ERR', data: err.message });
+    }
+});
+
+// Ruta de registro
+router.post('/register', async (req, res) => {
+    try {
+        const { first_name, last_name, username, email, age, password } = req.body;
+
+        // Verificamos si ya existe un usuario con el mismo correo
+        const usuarioExistente = await User.findOne({ email });
+
+        if (usuarioExistente) {
+            return res.status(400).json({ status: 'ERR', data: 'El correo ya está registrado.' });
+        }
+
+        // Crear un nuevo usuario
+        const newUser = new User({
+            first_name,
+            last_name,
+            username,
+            email,
+            age,
+            password,
+        });
+
+        // Guardamos el nuevo usuario en la base de datos
+        await newUser.save();
+
+        res.status(200).json({ status: 'OK', data: 'Usuario registrado exitosamente.' });
+    } catch (error) {
+        console.error(error);
+        res.status(400).json({ status: 'ERR', data: 'Error interno del servidor.' });
     }
 });
 

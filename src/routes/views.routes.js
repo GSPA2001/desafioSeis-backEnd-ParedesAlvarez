@@ -53,7 +53,14 @@ router.get('/products', async (req, res) => {
             .lean()
             .exec();
 
-        res.render('products', { allProducts, currentPage: page });
+        if (req.session.user) {
+            const user = req.session.user;
+            const welcomeMessage = `Bienvenido, ${user.email} (${user.role})`;
+
+            res.render('products', { allProducts, currentPage: page, welcomeMessage });
+        } else {
+            res.render('products', { allProducts, currentPage: page });
+        }
     } catch (err) {
         console.error(err);
         res.status(500).json({ status: 'error', error: err.message });
@@ -76,6 +83,33 @@ router.get('/carts/:cid', async (req, res) => {
         res.status(500).json({ status: 'error', error: err.message });
     }
 });
+
+// Ruta login
+router.get('/login', async (req, res) => {
+    // Si el usuario tiene sesión activa, no volvemos a mostrar el login,
+    // directamente redireccionamos al perfil.
+    if (req.session.user) {
+        res.redirect('/profile')
+    } else {
+        res.render('login', {})
+    }
+})
+
+// Ruta profile
+router.get('/profile', async (req, res) => {
+    // Si el usuario tiene sesión activa, mostramos su perfil
+    if (req.session.user) {
+        res.render('profile', { user: req.session.user })
+    } else {
+        // sino volvemos al login
+        res.redirect('/login')
+    }
+})
+
+//Ruta register
+router.get('/register', async (req, res) => {
+    res.render('register', {})
+})
 
 // Ruta para la página de chat
 router.get('/chat', async (req, res) => {
