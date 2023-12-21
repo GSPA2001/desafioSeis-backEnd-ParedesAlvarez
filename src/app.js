@@ -50,6 +50,8 @@ app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
 app.use('/products', viewsRouter)
 app.use('/login', usersRouter)
+app.use('/users', usersRouter)
+app.use('/logout', sessionsRouter)
 
 
 // Configuración de Mongoose

@@ -56,7 +56,8 @@ Una vez que el servidor esté en ejecución, abre Postman:
 - **Página de chat:** Utiliza el método GET a la URL http://localhost:8080/home/chat
 - **Página de login:** Utiliza el método GET a la URL http://localhost:8080/home/login
 - **Página de register:** Utiliza el método GET a la URL http://localhost:8080/home/register
-
+- **Página de users:** Utiliza el método GET a la URL http://localhost:8080/users
+- **Página de profile:** Utiliza el método GET a la URL http://localhost:8080/home/profile
 
 ## Used by
 
