@@ -91,7 +91,7 @@ router.get('/login', async (req, res) => {
     if (req.session.user) {
         res.redirect('/profile')
     } else {
-        res.render('login', {})
+        res.render('login', { error: req.query.error || '' })
     }
 })
 

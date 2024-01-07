@@ -42,7 +42,8 @@ router.post('/login', async (req, res) => {
             // Redireccionar a la vista de productos
             res.redirect('/products');
         } else {
-            res.status(401).send({ status: 'ERR', data: 'Credenciales inválidas' });
+            /* res.status(401).send({ status: 'ERR', data: 'Credenciales inválidas' }); */
+            res.redirect('/home/login?error=Credenciales inválidas');
         }
     } catch (err) {
         res.status(500).send({ status: 'ERR', data: err.message });

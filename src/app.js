@@ -48,10 +48,8 @@ app.get('/', (req,res) => res.render('index', { name: 'Tutor' }))
 app.use('/home', viewsRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
-app.use('/products', viewsRouter)
-app.use('/login', usersRouter)
 app.use('/users', usersRouter)
-app.use('/logout', sessionsRouter)
+app.use('/auth', sessionsRouter)
 
 
 // Configuración de Mongoose
