@@ -1,0 +1,29 @@
+[
+	{
+		"first_name": "Juan",
+		"last_name": "Apellido",
+		"age": "18",
+		"username": "j.usuario",
+		"email": "j@example.com",
+		"password": "contraseña",
+        "rol": "user"
+	},
+	{
+		"first_name": "Coder",
+		"last_name": "House",
+		"age": "18",
+		"username": "coderHouse",
+		"email": "adminCoder@coder.com",
+		"password": "contraseña",
+        "rol": "admin"
+	},
+	{
+		"first_name": "Marta",
+		"last_name": "Apellido",
+		"age": "22",
+		"username": "Mapellido",
+		"email": "m@example.com",
+		"password": "contraseñasegura",
+        "rol": "user"
+	}
+]
