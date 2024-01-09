@@ -124,12 +124,11 @@ router.get('/chat', async (req, res) => {
 
 //
 router.get('/users', async (req, res) => {
-    // Si el usuario tiene sesión activa, mostramos su perfil
-    if (req.session.user) {
-        res.render('profile', { user: req.session.user })
-    } else {
-        // sino volvemos a index
-        res.redirect('/')
+    try {
+        const users = await manager.getUsers();
+        res.render('users', { success: true, data: users });
+    } catch (err) {
+        res.status(500).send({ success: false, error: err.message });
     }
 });
 

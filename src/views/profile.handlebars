@@ -1,8 +1,15 @@
-<h1>Perfil de usuario</h1>
-
-<h2>Usuario: {{user.email}}</h2>
-<h3>Rol: {{user.role}}</h3>
-
-<form action="/profile" method="post" style="margin-bottom: 24px;">
-    <button type="submit" class="btn btn-danger">Salir</button>
-</form>
+<body class="bg-danger-subtle">
+    <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+        <figure class="text-center"><blockquote class="blockquote">
+            <h1>Perfil de usuario</h1></blockquote>
+        </figure>
+    </div>    
+    <h2 class='text-center mb-4'>Nombre{{user.name}}</h2>
+    <h2 class='text-center mb-4'>Email{{user.email}}</h2>
+    <h2 class='text-center mb-4'>Rol:{{user.role}}</h2>
+    <div class="float-end">
+        <form action="/home/login" method="get">
+            <button type="submit" class="btn btn-danger">Salir</button>
+        </form>
+    </div>
+</body>

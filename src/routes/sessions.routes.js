@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
         const { email, password } = req.body;
 
         // Buscar al usuario en la base de datos
-        const user = await userModel.findOne({ email, password }).lean();
+        const user = await userModel.find({ email, password }).lean();
 
         if (user) {
             // Asignar el rol según la lógica requerida
