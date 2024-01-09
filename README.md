@@ -35,6 +35,7 @@ Instalación:
 * Para el funcionamiento de home.handlebars http://localhost:8080/home
 * Para el funcionamiento de realTimeProducts.handlebars http://localhost:8080/home/realtimeproducts 
 * Para el funcionamiento de chat.handlebars http://localhost:8080/home/chat
+* Para el funcionamiento de products.handlebars http://localhost:8080/home/products Puedes ajustar el límite de productos por página según tus necesidades en routes/views.routes.js y se ve reflejado
 
 ## Para probar el código puede usar Postman
 ### Enviar Solicitudes a las Rutas Específicas
